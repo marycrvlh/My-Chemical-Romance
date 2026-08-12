@@ -29,6 +29,16 @@ body{
 
 html{
     scroll-behavior: smooth;
+    scroll-padding-top: 96px
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+ 
+button {
+    font:inherit;
 }
 
 
@@ -43,6 +53,9 @@ header{
     font-family: var(--fonte-Special);
     padding: 10px;
     margin: 10px;
+    top: 0;
+    left: 0;
+    z-index: 1000;
 }
 
 .logo{
@@ -57,16 +70,59 @@ nav a{
     font-family: var(--fonte-Special);
     color: var(--cinza);
     text-decoration: none;
+    letter-spacing: 0.12em; 
+    transition: transform 0.25s ease, color 0.2s ease;
 }
 
 nav a:hover{
     color: var(--vermelho);
-    border-bottom: 1px solid #c0001a;
-
+    transform: translateY(-3px);
 }
 
 /* conteudo da página */
 
 .hero{
-    background-image: url(./image/My-Chemical-Romance-Hero.png);
+    min-height: 920px;
+    padding-top: 96px;
+    position: relative;
+    background:
+    linear-gradient(90deg,#050505 0%,rgba(5, 5, 5, 0.86) 34%, rgba(5, 5, 5, 0.18) 75%),
+    linear-gradient( 0deg, #050505 0%, transparent 40% ),
+    url("./image/My-Chemical-Romance-Hero.png")
+    center / cover no-repeat;
+}
+
+.conteudo-principal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+}
+
+.conteudo-principal h1{
+    font-size: ;
+    font-family: var(--fonte-Anton);
+    margin-top: 20px;
+}
+
+.conteudo-principal h3{
+    font-family: var(--fonte-Special);
+    color: #c0001a;
+    gap: 20px;
+    line-height: 1.0
+}
+
+.conteudo-principal strong{
+    color: #c0001a;
+}
+
+.separador{
+    width: 40px;
+    border: 1px  solid var(--vermelho);
+}
+
+.separador-vertical{
+    height: 40px;
+    border: 1px solid var(--vermelho);
 }

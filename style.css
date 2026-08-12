@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap'); 
+/* Anton */
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
+/* Crimson Text */
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Special+Elite&display=swap');
+/* Special Elite */
+
+:root{
+    --vermelho: #c0001a;
+    --preto: #151515;
+    --claro:#f5f1e8;
+    --cinza: #8c8c8c;
+    --fonte-Anton: 'Anton', sans-serif;
+    --fonte-Crimson: 'Crimson Text', sans-serif;
+    --fonte-Special: 'Special Elite', sans-serif;
+}
+
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    background: var(--preto);
+    color: var(--claro);
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+
+/* cabeçalho */
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--cinza);
+    background-color: #151515;
+    font-family: var(--fonte-Special);
+    padding: 10px;
+    margin: 10px;
+}
+
+.logo{
+    color: #c0001a;
+    font-family: var(--fonte-Anton);
+    font-size: 25px;
+    text-decoration: none;
+}
+
+nav a{
+    padding: 30px;
+    font-family: var(--fonte-Special);
+    color: var(--cinza);
+    text-decoration: none;
+}
+
+nav a:hover{
+    color: var(--vermelho);
+    border-bottom: 1px solid #c0001a;
+
+}
+
+/* conteudo da página */
+
+.hero{
+    background-image: url(./image/My-Chemical-Romance-Hero.png);
+}

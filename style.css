@@ -117,7 +117,7 @@ nav a:hover{
     margin-bottom: 10px;
 }
 
-.conteudo-principal strong{
+.conteudo-principal span{
     color: #c0001a;
 }
 
@@ -223,11 +223,43 @@ nav a:hover{
 }
 
 .card {
-  border: 1px solid #ccc;
+  border: 2px solid #222222;
   padding: 16px;
-  border-radius: 8px;
-  width: 300px;
+  min-width: 90%;
+  margin:20px;
   margin-bottom: 16px;
+  display: flex;
+  flex-direction: row;
+}
+
+.card strong{
+    font-family: var(--fonte-Anton);
+    font-size: 50px;
+    font-weight: 400;
+    color: #222222;
+}
+
+.card-titulo{
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+
+.card-titulo h1{
+    font-family: var(--fonte-Anton);
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 40px;
+}
+
+.card-titulo p{
+    font-family: var(--fonte-Special);
+    color: var(--cinza);
+    font-size: 16px;
+}
+
+.card-titulo span{
+    color: #c0001a;
 }
 
 .card-conteudo {
@@ -238,3 +270,4 @@ nav a:hover{
 .card-conteudo.ativo {
   display: block;
 }
+

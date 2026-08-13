@@ -45,17 +45,20 @@ button {
 /* cabeçalho */
 
 header{
+    width: 100%;
+    height: 60px;
+    padding: 0 clamp(24px, 5vw, 88px);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: var(--cinza);
-    background: #080808;
-    font-family: var(--fonte-Special);
-    padding: 10px;
-    margin: 10px;
+ 
+    position: fixed;
     top: 0;
     left: 0;
     z-index: 1000;
+ 
+    background: var(--preto);
+    font-family: var(--fonte-Special);
 }
 
 .logo{
@@ -82,7 +85,7 @@ nav a:hover{
 /* conteudo da página */
 
 .hero{
-    min-height: 750px;
+    min-height: 950px;
     padding-top: 96px;
     position: relative;
     background:
@@ -93,7 +96,7 @@ nav a:hover{
 }
 
 .conteudo-principal{
-    margin-top: 125px;
+    margin-top: 150px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -230,6 +233,7 @@ nav a:hover{
   margin-bottom: 16px;
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
 
 .card strong{
@@ -242,7 +246,9 @@ nav a:hover{
 .card-titulo{
     display: flex;
     flex-direction: column;
+    text-align: center;
     margin-left: 20px;
+    line-height: 1.2;
 }
 
 .card-titulo h1{
@@ -260,6 +266,13 @@ nav a:hover{
 
 .card-titulo span{
     color: #c0001a;
+}
+
+.card-botao{
+    color: #f5f1e8;
+    background: #080808;
+    border: 0.5px solid #8c8c8c;
+    border-radius: 100px;
 }
 
 .card-conteudo {

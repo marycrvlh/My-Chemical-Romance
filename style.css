@@ -23,7 +23,7 @@
 
 body{
     margin: 0;
-    background: var(--preto);
+    background: #080808;
     color: var(--claro);
 }
 
@@ -36,7 +36,7 @@ a {
     color: inherit;
     text-decoration: none;
 }
- 
+
 button {
     font:inherit;
 }
@@ -49,7 +49,7 @@ header{
     justify-content: space-between;
     align-items: center;
     color: var(--cinza);
-    background-color: #151515;
+    background: #080808;
     font-family: var(--fonte-Special);
     padding: 10px;
     margin: 10px;
@@ -82,17 +82,18 @@ nav a:hover{
 /* conteudo da página */
 
 .hero{
-    min-height: 920px;
+    min-height: 750px;
     padding-top: 96px;
     position: relative;
     background:
     linear-gradient(90deg,#050505 0%,rgba(5, 5, 5, 0.86) 34%, rgba(5, 5, 5, 0.18) 75%),
-    linear-gradient( 0deg, #050505 0%, transparent 40% ),
+    linear-gradient( 0deg, #050505 0%, transparent 50% ),
     url("./image/My-Chemical-Romance-Hero.png")
     center / cover no-repeat;
 }
 
 .conteudo-principal{
+    margin-top: 125px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -101,16 +102,19 @@ nav a:hover{
 }
 
 .conteudo-principal h1{
-    font-size: ;
+    font-size: 100px;
     font-family: var(--fonte-Anton);
     margin-top: 20px;
+    line-height: 1;
+    margin-bottom: 50px;
 }
 
 .conteudo-principal h3{
     font-family: var(--fonte-Special);
-    color: #c0001a;
-    gap: 20px;
-    line-height: 1.0
+    color: var(--vermelho); 
+    line-height: 1;
+    letter-spacing: 10px;
+    margin-bottom: 10px;
 }
 
 .conteudo-principal strong{
@@ -118,11 +122,102 @@ nav a:hover{
 }
 
 .separador{
-    width: 40px;
+    width: 50px;
     border: 1px  solid var(--vermelho);
 }
 
 .separador-vertical{
     height: 40px;
     border: 1px solid var(--vermelho);
+}
+
+.citacao-frase{
+    font-family: var(--fonte-Crimson);
+    color: var(--cinza);
+    font-size: 20px;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    line-height: 1.5;
+    max-width: 600px;
+}
+
+.citacao-pessoa{
+    font-family: var(--fonte-Special);
+    color: var(--vermelho);
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+.banda{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(300px, 1fr));
+    gap: 100px;
+    align-items: center;
+    width: 100%;
+    padding: 30px;
+    margin: 50px auto;
+    border-bottom: 1px solid #151515;
+}
+
+.titulo-banda h1{
+    font-family: var(--fonte-Special);
+    font-size: 20px;
+    color: var(--vermelho);
+    margin:20px;
+    text-align: center;
+    flex: 1;
+}
+
+.conteudo h1{
+    font-family: var(--fonte-Crimson);
+    font-size: 20px;
+    color: var(--claro);
+    margin: 20px;
+    text-align: flex-start;
+    flex: 2;
+}
+
+.conteudo h2{
+    font-family: var(--fonte-Crimson);
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--cinza);
+    margin:20px;
+    max-width: 500px;
+    text-align: flex-start;
+    flex: 2;
+}
+
+.integrantes{
+    display: grid;
+    grid-template-columns: repeat(1, minmax(250px, 1fr));
+    gap: 100px;
+    align-items: center;
+    width: 100%;
+    padding: 30px;
+    margin: 100px auto;
+    border-bottom: 1px solid #151515;   
+}
+
+.titulo-integrantes h1{
+    font-family: var(--fonte-Anton);
+    font-size: 70px;
+    font-weight: 400;
+    color: var(--claro);
+    margin:20px;
+    text-align: left;
+    flex: 1;
+    line-height: 0.5;
+}
+
+.titulo-integrantes p{
+    font-family: var(--fonte-Special);
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--vermelho);
+    margin:20px;
+    text-align: left;
+    flex: 1;
 }

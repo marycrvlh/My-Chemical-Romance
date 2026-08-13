@@ -221,3 +221,20 @@ nav a:hover{
     text-align: left;
     flex: 1;
 }
+
+.card {
+  border: 1px solid #ccc;
+  padding: 16px;
+  border-radius: 8px;
+  width: 300px;
+  margin-bottom: 16px;
+}
+
+.card-conteudo {
+  display: none;
+  margin-top: 12px;
+}
+
+.card-conteudo.ativo {
+  display: block;
+}

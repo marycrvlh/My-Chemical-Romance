@@ -151,6 +151,9 @@ nav a:hover{
     margin-bottom: 30px;
 }
 
+
+/* parte que fala um pouco mais sobre a banda  */
+
 .banda{
     display: grid;
     grid-template-columns: repeat(2, minmax(300px, 1fr));
@@ -191,6 +194,8 @@ nav a:hover{
     flex: 2;
 }
 
+/* integrantes da banda */
+
 .integrantes{
     display: grid;
     grid-template-columns: repeat(1, minmax(250px, 1fr));
@@ -224,6 +229,8 @@ nav a:hover{
     text-align: left;
     flex: 1;
 }
+
+/* cards de cada integrante */
 
 .card {
   border: 2px solid #222222;
@@ -268,19 +275,58 @@ nav a:hover{
     color: #c0001a;
 }
 
-.card-botao{
-    color: #f5f1e8;
-    background: #080808;
-    border: 0.5px solid #8c8c8c;
-    border-radius: 100px;
-}
-
-.card-conteudo {
-  display: none;
-  margin-top: 12px;
-}
 
 .card-conteudo.ativo {
   display: block;
 }
+
+.card-conteudo.inativo {
+  display: none;
+}
+
+.card-conteudo {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(250px, 1fr));
+  margin-top: 30px;
+  padding: 20px;
+}
+
+.card-conteudo img {
+  width: 300px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.card-conteudo .card-texto {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 40px;
+}
+
+.card-conteudo p {
+  font-family: var(--fonte-Crimson);
+  color: var(--cinza);
+  font-size: 20px;
+  margin: 20px;
+  padding-top: 20px;
+  padding-left: 10px;
+  max-width: 500px;
+  text-align: flex-start;
+  flex: 2;
+  border-left: 2px solid #c0001a;
+  line-height: 1.5;
+}
+
+.card-conteudo h2{
+    font-family: var(--fonte-Crimson);
+    font-size: 20px;
+    font-weight: 400;
+    color: #a9a9a9;
+    margin: 20px;
+    max-width: 900px;
+    text-align: flex-start;
+    flex: 2;
+}
+
 

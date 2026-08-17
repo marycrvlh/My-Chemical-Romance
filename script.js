@@ -1,5 +1,4 @@
-
- // Script para abrir e fechar os cards de cada integrante;
+// Script para abrir e fechar os cards de cada integrante;
 
   const cabecalhos = document.querySelectorAll('.cabecalho');
 
@@ -29,6 +28,15 @@
         'Gravado quase inteiramente no porão do baterista Matt Pellissier.',
         'Gerard Way concebeu o álbum como um "romance de horror" com narrativa contínua.',
         '"Vampires Will Never Hurt You" foi escrita em uma noite de insônia após assistir a um filme de terror.'
+      ],
+      faixas: [
+        "Romance",
+        "Honey, This Mirror Isn't Big Enough for the Two of Us",
+        "Vampires Will Never Hurt You",
+        "Drowning Lessons",
+        "Our Lady of Sorrows",
+        "Headfirst for Halos",
+        "Skylines and Turnstiles"
       ]
     },
     {
@@ -42,10 +50,19 @@
         "O álbum vendeu mais de 3 milhões de cópias nos EUA, disco de platina triplo.",
         "O clipe de 'The Ghost of You' foi filmado como um curta-metragem de guerra no estilo do Dia D.",
         "Frank Iero se juntou à banda durante as gravações deste álbum."
+      ],
+      faixas: [
+        "Helena",
+        "Give 'Em Hell, Kid",
+        "To the End",
+        "You Know What They Do to Guys Like Us in Prison",
+        "I'm Not Okay (I Promise)",
+        "The Ghost of You",
+        "The Jetset Life Is Gonna Kill You"
       ]
     },
     {
-      imagem: "./image/black_parade.png",
+      imagem: "./image/black-parede.png",
       ano: "2006",
       selo: "REPRISE RECORDS",
       titulo: "The Black Parade",
@@ -56,6 +73,15 @@
         "Rob Cavallo, produtor do Green Day, produziu o álbum.",
         "A nota de piano de abertura de 'Welcome...' se tornou um dos riffs mais reconhecíveis do rock moderno.",
         "Gerard Way declarou que quase destruiu sua saúde mental ao escrever o álbum."
+      ],
+      faixas: [
+        "Welcome to the Black Parade",
+        "Famous Last Words",
+        "Cancer",
+        "I Don't Love You",
+        "House of Wolves",
+        "Mama",
+        "Sleep"
       ]
     },
     {
@@ -69,6 +95,15 @@
         "O álbum foi acompanhado de uma narrativa completa de banda desenhada.",
         "'Na Na Na' foi gravada e mixada em apenas três dias.",
         "A estética é inspirada em filmes de road movie dos anos 70 e 80."
+      ],
+      faixas: [
+        "Na Na Na",
+        "Sing",
+        "Planetary (GO!)",
+        "The Only Hope for Me Is You",
+        "Party Poison",
+        "Bulletproof Heart",
+        "Summertime"
       ]
     }
   ];
@@ -115,11 +150,19 @@
     const album = ALBUNS[ativo];
 
     conteudoEl.innerHTML = `
-      <div class="capa">
-        <p class="selo">${album.selo}</p>
-        <p class="ano-grande">${album.ano}</p>
+      <div class="coluna-capa">
+        <div class="capa" style="background-image: url('${album.imagem}')">
+          <p class="selo">${album.selo}</p>
+          <p class="ano-grande">${album.ano}</p>
+        </div>
+        <div class="tracklist">
+          <p class="eyebrow">FAIXAS EM DESTAQUE</p>
+          <ol>
+            ${album.faixas.map((f, idx) => `<li><span class="num">${String(idx + 1).padStart(2, "0")}</span><span class="faixa">${f}</span></li>`).join("")}
+          </ol>
+        </div>
       </div>
-      <div class="info">
+      <div class="album-info">
         <p class="eyebrow">${album.ano} · ${album.selo}</p>
         <h2>${album.titulo}</h2>
         <p class="desc">${album.descricao}</p>

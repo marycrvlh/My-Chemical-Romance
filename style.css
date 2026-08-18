@@ -593,3 +593,54 @@ nav a:hover{
 .album-conteudo.anim {
     animation: fadeSlide 0.35s ease-out;
 }
+
+/* historia da banda  */
+
+.historia{
+    background: #151515;
+    color: #fff;
+    padding: 60px 20px;
+    margin: 0 auto;
+}
+
+.titulo-historia h1{
+    font-family: var(--fonte-Anton);
+    font-size: 80px;
+    font-weight: 400;
+    color: var(--claro);
+    margin: 30px;
+    margin-bottom: 100px;
+    text-align: left;
+    flex: 1;
+    line-height: 0.5;
+}
+
+.titulo-historia p{
+    font-family: var(--fonte-Special);
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--vermelho);
+    margin: 30px;
+    text-align: left;
+    flex: 1;
+}
+
+.linha-tempo{
+    margin: 50px;
+    line-height: 2;
+}
+
+.linha-tempo .ano{
+    color: var(--vermelho);
+    font-family: var(--fonte-Anton);
+    font-size: 20px;
+}
+
+.linha-tempo .informacao{
+    font-family: var(--fonte-Crimson);
+    color: var(--cinza);
+    display: flex;
+    font-size: 18px;
+}

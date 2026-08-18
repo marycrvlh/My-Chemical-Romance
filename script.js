@@ -38,7 +38,6 @@
         "Headfirst for Halos",
         "Skylines and Turnstiles"
       ],
-      link:
     },
     {
       imagem: "./image/revenge.png",
@@ -168,7 +167,6 @@
         <h2>${album.titulo}</h2>
         <p class="desc">${album.descricao}</p>
         <p class="eyebrow">CURIOSIDADES</p>
-        <a class="link-spotify">${album.link}</a>
         <ul>
           ${album.curiosidades.map(c => `<li>${c}</li>`).join("")}
         </ul>

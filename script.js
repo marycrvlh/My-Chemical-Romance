@@ -46,7 +46,7 @@
       titulo: "Three Cheers for Sweet Revenge",
       descricao: "O álbum que colocou o MCR no mapa global. Um conceito sobre um homem que mata 1000 almas para se reunir com sua amada no além. 'Helena' e 'I'm Not Okay' viraram hinos de uma geração, tocados em rádios do mundo inteiro.",
       curiosidades: [
-        '""Helena" foi escrita em homenagem à avó de Gerard e Mikey Way, Elena Lee Rush.',
+        '"Helena" foi escrita em homenagem à avó de Gerard e Mikey Way, Elena Lee Rush.',
         "O álbum vendeu mais de 3 milhões de cópias nos EUA, disco de platina triplo.",
         "O clipe de 'The Ghost of You' foi filmado como um curta-metragem de guerra no estilo do Dia D.",
         "Frank Iero se juntou à banda durante as gravações deste álbum."

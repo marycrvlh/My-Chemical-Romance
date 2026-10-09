@@ -127,6 +127,7 @@ nav a:hover{
 .separador{
     width: 50px;
     border: 1px  solid var(--vermelho);
+    transition: width 0.3s ease;
 }
 
 .separador-vertical{
@@ -684,29 +685,10 @@ nav a:hover{
 }
 
 .legado-conteudo{
-    margin: 10px 0px 0px 150px;
     display: grid;
     grid-template-columns: repeat(2,1fr);
-    width: 800px;
+    margin: 40px;
     gap: 50px;
-    margin-bottom: 70px;
-}
-
-.paragrafo1,
-.paragrafo2{
-    background: #111;
-    border: 1px solid var(--vermelho);
-    padding: 15px;
-    border-radius: 10px;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.paragrafo1:hover,
-.paragrafo2:hover{
-    cursor: pointer;
-    transform: translateY(-10px);
-    box-shadow: 0 2px 10px rgba(197, 0, 0, 0.543);
 }
 
 .paragrafo1 .titulo{
@@ -721,6 +703,7 @@ nav a:hover{
     font-family: var(--fonte-Crimson);
     color: var(--cinza);
     font-size: 18px;
+    line-height: 1.7;
 }
 
 .paragrafo2 .titulo{
@@ -736,6 +719,7 @@ nav a:hover{
     font-family: var(--fonte-Crimson);
     color: var(--cinza);
     font-size: 18px;
+    line-height: 1.7;
 }
 
 .curiosidades{
@@ -768,7 +752,11 @@ nav a:hover{
 
 .curiosidade:hover{
     cursor: pointer;
-    background-color: #ffee0012;
+    background-color: #10101005;
+}
+
+.curiosidade:hover .separador{
+    width: 100px;
 }
 
 .curiosidade .titulo{

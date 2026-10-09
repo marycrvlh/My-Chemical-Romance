@@ -728,6 +728,7 @@ nav a:hover{
 }
 
 .curiosidades h1{
+    text-align: center;
     font-family: var(--fonte-Anton);
     text-transform: uppercase;
     font-weight: 400;
@@ -735,7 +736,7 @@ nav a:hover{
 }
 
 .grid-curiosidades{
-    margin-top: 100px;
+    margin-top: 50px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     background-color: #222; 
@@ -769,4 +770,50 @@ nav a:hover{
     font-family: var(--fonte-Crimson);
     font-size: 16px;
     color: var(--cinza);
+}
+
+/* footer */
+footer{
+    padding: 10px;
+    margin: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.logo-footer h2{
+    font-family: var(--fonte-Anton);
+    font-weight: 400;
+    color: var(--vermelho);
+    font-size: 20px;
+}
+
+.logo-footer p{
+    font-family: var(--fonte-Special);
+    color: var(--cinza);
+    font-size: 12px;
+}
+
+.localizacao p{
+    font-family: var(--fonte-Special);
+    color: var(--cinza);
+    font-size: 12px;
+}
+
+.assinatura{
+    text-align: center;
+}
+
+.assinatura h2{
+    font-family: var(--fonte-Anton);
+    color: var(--vermelho);
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.assinatura p{
+    font-family: var(--fonte-Special);
+    color: var(--cinza);
+    font-size: 12px;
+
 }

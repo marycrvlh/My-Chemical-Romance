@@ -1,35 +1,37 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap'); 
-/* Anton */
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
-/* Crimson Text */
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Special+Elite&display=swap');
-/* Special Elite */
-
-:root{
+:root {
     --vermelho: #c0001a;
     --preto: #151515;
-    --claro:#f5f1e8;
+    --claro: #f5f1e8;
     --cinza: #8c8c8c;
-    --fonte-Anton: 'Anton', sans-serif;
-    --fonte-Crimson: 'Crimson Text', sans-serif;
-    --fonte-Special: 'Special Elite', sans-serif;
+    --fonte-Anton: 'Anton', Impact, sans-serif;
+    --fonte-Crimson: 'Crimson Text', Georgia, serif;
+    --fonte-Special: 'Special Elite', 'Courier New', monospace;
+    --recuo: clamp(16px, 4vw, 30px);
+    --altura-header: 60px;
 }
 
-*{
-    margin: 0%;
-    padding: 0%;
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
-body{
-    margin: 0;
-    background: #080808;
-    color: var(--claro);
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--altura-header) + 16px);
+    -webkit-text-size-adjust: 100%;
 }
 
-html{
-    scroll-behavior: smooth;
-    scroll-padding-top: 96px
+body {
+    background: #080808;
+    color: var(--claro);
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
 }
 
 a {
@@ -38,204 +40,239 @@ a {
 }
 
 button {
-    font:inherit;
+    font: inherit;
 }
 
+:focus-visible {
+    outline: 2px solid var(--vermelho);
+    outline-offset: 3px;
+}
 
-/* cabeçalho */
+/* ==== Cabeçalho ==== */
 
-header{
+header {
     width: 100%;
-    height: 60px;
-    padding: 0 clamp(24px, 5vw, 88px);
+    height: var(--altura-header);
+    padding: 0 clamp(16px, 5vw, 88px);
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: fixed;
     top: 0;
     left: 0;
-    position: fixed;
     z-index: 1000;
     background: var(--preto);
     font-family: var(--fonte-Special);
 }
 
-.logo{
-    color: #c0001a;
+.logo {
+    color: var(--vermelho);
     font-family: var(--fonte-Anton);
     font-size: 25px;
-    text-decoration: none;
 }
 
-nav a{
-    padding: 30px;
+nav a {
+    padding: 20px clamp(12px, 2vw, 30px);
     font-family: var(--fonte-Special);
     color: var(--cinza);
-    text-decoration: none;
     letter-spacing: 0.12em;
     transition: color 0.3s ease;
 }
 
-nav a:hover{
+nav a:hover,
+nav a:focus-visible {
     color: var(--vermelho);
-    transition: color 0.3s ease;
 }
 
+.anos {
+    white-space: nowrap;
+}
 
-/* conteudo da página */
+.menu-toggle {
+    display: none;
+    width: 44px;
+    height: 44px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+}
 
-.hero{
-    min-height: 950px;
-    padding-top: 96px;
+.menu-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--claro);
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ==== Hero ==== */
+
+.hero {
+    min-height: min(950px, 100svh);
+    padding: calc(var(--altura-header) + 36px) 20px 0;
     position: relative;
     background:
-    linear-gradient(90deg,#050505 0%,rgba(5, 5, 5, 0.86) 34%, rgba(5, 5, 5, 0.18) 75%),
-    linear-gradient( 0deg, #050505 0%, transparent 50% ),
-    url("./image/My-Chemical-Romance-Hero.png")
-    center / cover no-repeat;
+        linear-gradient(90deg, #050505 0%, rgba(5, 5, 5, 0.86) 34%, rgba(5, 5, 5, 0.18) 75%),
+        linear-gradient(0deg, #050505 0%, transparent 50%),
+        url("./image/My-Chemical-Romance-Hero.png") center / cover no-repeat;
 }
 
-.conteudo-principal{
-    margin-top: 150px;
+.conteudo-principal {
+    margin-top: clamp(40px, 12vw, 150px);
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-
 }
 
-.conteudo-principal h1{
-    font-size: 100px;
+.conteudo-principal h1 {
+    font-size: clamp(48px, 12vw, 100px);
     font-family: var(--fonte-Anton);
     margin-top: 20px;
     line-height: 1;
-    margin-bottom: 50px;
+    margin-bottom: clamp(28px, 5vw, 50px);
 }
 
-.conteudo-principal h3{
+.conteudo-principal h3 {
     font-family: var(--fonte-Special);
-    color: var(--vermelho); 
-    line-height: 1;
-    letter-spacing: 10px;
+    font-size: clamp(12px, 3vw, 18px);
+    font-weight: 400;
+    color: var(--vermelho);
+    line-height: 1.4;
+    letter-spacing: clamp(3px, 1.2vw, 10px);
     margin-bottom: 10px;
 }
 
-.conteudo-principal span{
-    color: #c0001a;
+.conteudo-principal span {
+    color: var(--vermelho);
 }
 
-.separador{
+.separador {
     width: 50px;
-    border: 1px  solid var(--vermelho);
+    border: 1px solid var(--vermelho);
     transition: width 0.3s ease;
 }
 
-.separador-vertical{
+.separador-vertical {
     height: 40px;
     border: 1px solid var(--vermelho);
 }
 
-.citacao-frase{
+.citacao-frase {
     font-family: var(--fonte-Crimson);
     color: var(--cinza);
-    font-size: 20px;
+    font-size: clamp(17px, 2.4vw, 20px);
     margin-top: 50px;
     margin-bottom: 30px;
     line-height: 1.5;
     max-width: 600px;
 }
 
-.citacao-pessoa{
+.citacao-pessoa {
     font-family: var(--fonte-Special);
     color: var(--vermelho);
     font-size: 16px;
     margin-bottom: 30px;
 }
 
+/* ==== A banda ==== */
 
-/* parte que fala um pouco mais sobre a banda  */
-
-.banda{
+.banda {
     display: grid;
-    grid-template-columns: repeat(2, minmax(300px, 1fr));
-    gap: 100px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(24px, 8vw, 100px);
     align-items: center;
     width: 100%;
-    padding: 30px;
+    padding: 30px clamp(16px, 4vw, 30px);
     margin: 50px auto;
-
 }
 
-.titulo-banda h1{
+.titulo-banda h1 {
     font-family: var(--fonte-Special);
     font-size: 20px;
+    font-weight: 400;
     color: var(--vermelho);
     margin: 20px;
     text-align: center;
-    flex: 1;
     letter-spacing: 5px;
 }
 
-.conteudo h1{
+.conteudo h1 {
     font-family: var(--fonte-Crimson);
-    font-size: 20px;
+    font-size: clamp(18px, 2.4vw, 20px);
+    font-weight: 600;
     color: var(--claro);
     margin: 20px;
-    text-align: flex-start;
-    flex: 2;
+    text-align: start;
 }
 
-.conteudo h2{
+.conteudo h2 {
     font-family: var(--fonte-Crimson);
-    font-size: 20px;
+    font-size: clamp(17px, 2.4vw, 20px);
     font-weight: 400;
     color: var(--cinza);
-    margin:20px;
+    margin: 20px;
     max-width: 500px;
-    text-align: flex-start;
-    flex: 2;
+    text-align: start;
+    line-height: 1.5;
 }
 
-/* integrantes da banda */
-
-.integrantes {
-    margin: 0 auto;
-    padding: 10px;
-    background: #151515;
-}
-
-.titulo-integrantes h1{
+/* ==== Titulo das seções ==== */
+.titulo-integrantes h1,
+.titulo-discografia h1,
+.titulo-historia h1 {
     font-family: var(--fonte-Anton);
-    font-size: 80px;
+    font-size: clamp(44px, 11vw, 80px);
     font-weight: 400;
     color: var(--claro);
-    margin: 50px;
-    margin-bottom: 100px;
+    margin: var(--recuo);
+    margin-bottom: clamp(48px, 9vw, 100px);
     text-align: left;
-    flex: 1;
     line-height: 0.5;
 }
 
-.titulo-integrantes p{
+.titulo-integrantes p,
+.titulo-discografia p,
+.titulo-historia p {
     font-family: var(--fonte-Special);
-    font-size: 20px;
+    font-size: clamp(14px, 3vw, 20px);
     font-weight: 400;
-    letter-spacing: 5px;
+    letter-spacing: clamp(2px, 1vw, 5px);
     text-transform: uppercase;
     color: var(--vermelho);
-    margin: 50px;
+    margin: var(--recuo);
     text-align: left;
-    flex: 1;
 }
 
+/* ==== Integrantes ==== */
+
+.integrantes {
+    margin: 0 auto;
+    padding: 10px 10px 40px;
+    background: var(--preto);
+}
 
 .item {
-    padding-top: 0;
     background: #090909;
-    border-bottom: 1px solid #151515;
+    border-bottom: 1px solid var(--preto);
 }
-
-/* --- Cabeçalho clicável --- */
 
 .cabecalho {
     all: unset;
@@ -243,50 +280,58 @@ nav a:hover{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 16px;
     width: 95%;
     padding: 20px 5px;
     box-sizing: border-box;
     margin: 0 auto;
 }
 
+.cabecalho:focus-visible {
+    outline: 2px solid var(--vermelho);
+    outline-offset: -2px;
+}
+
 .info {
     display: flex;
     align-items: baseline;
-    gap: 24px;
+    gap: clamp(12px, 3vw, 24px);
+    min-width: 0;
 }
 
 .numero {
     font-family: var(--fonte-Anton);
     color: #555;
     font-weight: 400;
-    font-size: 40px;
+    font-size: clamp(26px, 5vw, 40px);
 }
 
 .nome {
     font-family: var(--fonte-Anton);
     color: #fff;
     font-weight: 400;
-    font-size: 40px;
+    font-size: clamp(26px, 5vw, 40px);
     letter-spacing: 0.5px;
-    transition: color 0.3s ease; 
+    transition: color 0.3s ease;
 }
 
 .detalhes {
     margin-top: 4px;
-    font-size: 16px;
+    font-size: clamp(13px, 2vw, 16px);
 }
 
 .cargo {
     font-family: var(--fonte-Special);
     color: #e11d2e;
 }
+
 .periodo {
     font-family: var(--fonte-Special);
-    color: #666; 
-    margin-left: 10px; 
+    color: #666;
+    margin-left: 10px;
 }
 
-/* --- Botão + que vira x --- */
+/* botão + que vira x */
 .botao {
     width: 40px;
     height: 40px;
@@ -297,17 +342,13 @@ nav a:hover{
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    transition: 
-        transform 0.3s ease,
-        background 0.3s ease;
+    transition: transform 0.3s ease, background 0.3s ease;
 }
 
 .botao svg line {
     stroke: #888;
     transition: stroke 0.3s ease;
 }
-
-/* Quando o item está aberto, gira o botão e muda a cor */
 
 .item.aberto .botao {
     background: #e11d2e;
@@ -319,31 +360,31 @@ nav a:hover{
 }
 
 .item.aberto .nome {
-    color:  #e11d2e;
+    color: #e11d2e;
 }
 
-/* --- Painel que expande/recolhe  --- */
+/* painel que expande/recolhe */
 .painel {
     margin: 0;
-    padding: 0 50px;
+    padding: 0 clamp(8px, 4vw, 50px);
     display: grid;
     grid-template-rows: 0fr;
     transition: grid-template-rows 0.4s ease;
 }
 
 .item.aberto .painel {
-    grid-template-rows: 1fr;      
+    grid-template-rows: 1fr;
 }
 
 .painel-conteudo {
-    overflow: hidden;             
+    overflow: hidden;
 }
 
 .painel-interno {
     display: grid;
-    grid-template-columns: 280px 1fr;
-    gap: 32px;
-    padding: 20px 8px 32px 8px;
+    grid-template-columns: minmax(180px, 280px) minmax(0, 1fr);
+    gap: clamp(16px, 3vw, 32px);
+    padding: 20px 8px 32px;
 }
 
 .painel-interno img {
@@ -353,12 +394,11 @@ nav a:hover{
     filter: grayscale(100%);
 }
 
-
 .bio {
     max-width: 700px;
     color: #ccc;
     line-height: 1.7;
-    font-size: 20px;
+    font-size: clamp(16px, 2.2vw, 20px);
 }
 
 .citacao {
@@ -367,60 +407,32 @@ nav a:hover{
     margin-top: 20px;
     font-family: var(--fonte-Crimson);
     color: var(--cinza);
-    font-size: 20px;
+    font-size: clamp(17px, 2.2vw, 20px);
     max-width: 600px;
 }
 
-@media (max-width: 640px) {
-    .painel-interno { grid-template-columns: 1fr; }
-}
-
-/*  discografia da banda  */
+/*  ==== Discográfia ==== */
 
 .discografia {
     background: #0a0a0a;
     color: #fff;
-    padding: 60px 20px;
+    padding: clamp(40px, 6vw, 60px) 20px;
     margin: 0 auto;
 }
 
-.titulo-discografia h1{
-    font-family: var(--fonte-Anton);
-    font-size: 80px;
-    font-weight: 400;
-    color: var(--claro);
-    margin: 30px;
-    margin-bottom: 100px;
-    text-align: left;
-    flex: 1;
-    line-height: 0.5;
-}
 
-.titulo-discografia p{
-    font-family: var(--fonte-Special);
-    font-size: 20px;
-    font-weight: 400;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    color: var(--vermelho);
-    margin: 30px;
-    text-align: left;
-    flex: 1;
-}
-
-  /* ---- Barra de abas ---- */
 .tabs {
-    margin-left: 30px;
+    margin: 0 var(--recuo);
     position: relative;
     display: flex;
-    gap: 50px;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    gap: clamp(24px, 6vw, 50px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .tab {
     background: none;
     border: none;
-    color: rgba(255,255,255,0.4);
+    color: rgba(255, 255, 255, 0.4);
     font-family: var(--fonte-Anton);
     font-size: 16px;
     letter-spacing: 2px;
@@ -430,14 +442,13 @@ nav a:hover{
 }
 
 .tab:hover {
-    color: rgba(255,255,255,0.7);
+    color: rgba(255, 255, 255, 0.7);
 }
 
 .tab.ativo {
     color: #e6493f;
 }
 
-  /* Indicador deslizante */
 .indicador {
     position: absolute;
     bottom: 0;
@@ -446,28 +457,32 @@ nav a:hover{
     transition: left 0.3s ease, width 0.3s ease;
 }
 
-  /* ---- Conteúdo ---- */
+/* conteúdo do álbum */
 .album-conteudo {
-    margin-left: 30px;
+    margin: 0 var(--recuo);
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(24px, 4vw, 40px);
     padding-top: 40px;
-    max-width: 95%;
 }
 
 .coluna-capa {
     display: flex;
     flex-direction: column;
     gap: 24px;
+    min-width: 0;
+}
+
+.album-info {
+    min-width: 0;
 }
 
 .capa {
     background-size: cover;
     background-position: center;
-    background-color: rgba(255,255,255,0.05);
+    background-color: rgba(255, 255, 255, 0.05);
     border-radius: 8px;
-    height: 280px;
+    height: clamp(220px, 28vw, 280px);
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -488,57 +503,57 @@ nav a:hover{
     font-family: var(--fonte-Special);
     font-size: 11px;
     letter-spacing: 2px;
-    color: rgba(255,255,255,0.5);
+    color: rgba(255, 255, 255, 0.5);
 }
+
 .capa .ano-grande {
     font-size: 42px;
     font-weight: 700;
-    color: rgba(255,255,255,0.15);
+    color: rgba(255, 255, 255, 0.15);
 }
 
 .capa::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%);
+    inset: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%);
     border-radius: 8px;
-}   
-.album-info .eyebrow{
+}
+
+.album-info .eyebrow,
+.tracklist .eyebrow {
     color: #e6493f;
-    font-size: 16px;
+    font-family: var(--fonte-Special);
+    font-size: clamp(13px, 2vw, 16px);
     letter-spacing: 2px;
     margin-bottom: 8px;
 }
-
 
 .album-info h2 {
     font-family: var(--fonte-Anton);
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 1px;
-    font-size: 50px;
+    font-size: clamp(30px, 5.5vw, 50px);
     margin: 0 0 16px;
     line-height: 1.2;
+    overflow-wrap: anywhere;
 }
 
 .album-info p.desc {
     color: var(--cinza);
     font-family: var(--fonte-Crimson);
-    font-size: 20px;
+    font-size: clamp(17px, 2.2vw, 20px);
     line-height: 1.6;
     margin-bottom: 24px;
 }
 
 .album-info ul {
     list-style: none;
-    padding: 0;
-    margin: 0;
     color: var(--cinza);
-    font-size: 20px;
-    line-height:  1.5;
+    font-family: var(--fonte-Crimson);
+    font-size: clamp(16px, 2.2vw, 20px);
+    line-height: 1.5;
 }
 
 .album-info li {
@@ -552,11 +567,13 @@ nav a:hover{
     color: #e6493f;
 }
 
-/* ---- (FAIXAS EM DESTAQUE) ---- */
+/* faixas em destaque */
+.tracklist .eyebrow {
+    margin-bottom: 4px;
+}
+
 .tracklist ol {
     list-style: none;
-    margin: 0;
-    padding: 0;
 }
 
 .tracklist li {
@@ -564,7 +581,7 @@ nav a:hover{
     align-items: baseline;
     gap: 16px;
     padding: 10px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .tracklist li:last-child {
@@ -583,10 +600,10 @@ nav a:hover{
     font-family: var(--fonte-Crimson);
     font-style: italic;
     font-size: 16px;
-    color: rgba(255,255,255,0.75);
+    color: rgba(255, 255, 255, 0.75);
 }
 
-  /* Animação de entrada do conteúdo */
+/* animação de entrada */
 @keyframes fadeSlide {
     from { opacity: 0; transform: translateY(8px); }
     to   { opacity: 1; transform: translateY(0); }
@@ -596,224 +613,367 @@ nav a:hover{
     animation: fadeSlide 0.35s ease-out;
 }
 
-/* historia da banda  */
+/*  ==== História ==== */
 
-.historia{
-    background: #151515;
+.historia {
+    background: var(--preto);
     color: #fff;
-    padding: 60px 20px;
+    padding: clamp(40px, 6vw, 60px) 20px;
     margin: 0 auto;
 }
 
-.titulo-historia h1{
-    font-family: var(--fonte-Anton);
-    font-size: 80px;
-    font-weight: 400;
-    color: var(--claro);
-    margin: 30px;
-    margin-bottom: 100px;
-    text-align: left;
-    flex: 1;
-    line-height: 0.5;
-}
-
-.titulo-historia p{
-    font-family: var(--fonte-Special);
-    font-size: 20px;
-    font-weight: 400;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    color: var(--vermelho);
-    margin: 30px;
-    text-align: left;
-    flex: 1;
-}
-
-.linha-tempo{
-    margin: 50px;
+.linha-tempo {
+    margin: clamp(20px, 5vw, 50px);
     line-height: 2;
 }
 
-.linha-tempo:hover{
-    cursor: pointer;
-}
-
-.linha-tempo li{
+.linha-tempo li {
     display: flex;
     list-style: none;
-    gap: 20px;
+    gap: clamp(12px, 3vw, 20px);
     margin-bottom: 20px;
+    align-items: center;
 }
 
-.linha-tempo li:hover .ano{
-    border-left: 1px solid var(--vermelho);
-    padding-left: 10px;
-}
-
-.linha-tempo .ano{
+.linha-tempo .ano {
+    flex-shrink: 0;
+    min-width: 56px;
     color: var(--vermelho);
     font-family: var(--fonte-Anton);
     font-size: 20px;
-    transition: border-left 0.3s ease, padding-left 0.3s ease ;
+    transition: border-left 0.3s ease, padding-left 0.3s ease;
 }
 
-.linha-tempo .informacao{
+.linha-tempo .informacao {
     font-family: var(--fonte-Crimson);
     color: var(--cinza);
+    font-size: clamp(16px, 2.2vw, 18px);
+    line-height: 1.7;
+    transition: border-left 0.3s ease, padding-left 0.3s ease;
+}
+
+@media (hover: hover) {
+    .linha-tempo {
+        cursor: pointer;
+    }
+
+    .linha-tempo li:hover {
+        border-left: 1px solid var(--vermelho);
+        padding-left: 10px;
+    }
+}
+
+/* ===== Citação ==== */
+
+.container-citacao {
+    color: #fff;
+    padding: clamp(40px, 6vw, 60px) 20px;
+    margin: 0 auto;
+}
+
+.container-citacao-conteudo {
     display: flex;
-    font-size: 18px;
-}
-
-.container-citacao{
-    color: #fff;
-    padding: 60px 20px;
-    margin: 0 auto;
-}
-
-.container-citacao-conteudo{
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    margin-left: 320px;
-}
-
-/* Seção: Legado da banda */
-
-.legado{
-    background: #151515;
-    color: #fff;
-    padding: 60px 20px;
+    max-width: 800px;
     margin: 0 auto;
 }
 
-.legado-conteudo{
+.container-citacao-conteudo .citacao-frase {
+    margin-top: 40px;
+}
+
+/* ==== Legado ==== */
+.legado {
+    background: var(--preto);
+    color: #fff;
+    padding: clamp(40px, 6vw, 60px) 20px;
+    margin: 0 auto;
+}
+
+.legado-conteudo {
     display: grid;
-    grid-template-columns: repeat(2,1fr);
-    margin: 40px;
-    gap: 50px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin: clamp(20px, 4vw, 40px);
+    gap: clamp(32px, 5vw, 50px);
 }
 
-.paragrafo1 .titulo{
+.paragrafo1 .titulo,
+.paragrafo2 .titulo {
     font-family: var(--fonte-Anton);
     font-weight: 400;
-    font-size: 30px;
-    width: 400px;
+    font-size: clamp(24px, 4vw, 30px);
+    max-width: 400px;
     margin-bottom: 20px;
 }
 
-.paragrafo1 .conteudo{
-    font-family: var(--fonte-Crimson);
-    color: var(--cinza);
-    font-size: 18px;
-    line-height: 1.7;
-}
-
-.paragrafo2 .titulo{
+.paragrafo2 .titulo {
     color: var(--vermelho);
-    font-family: var(--fonte-Anton);
-    font-weight: 400;
-    font-size: 30px;
-    width: 400px;
-    margin-bottom: 20px;
 }
 
-.paragrafo2 .conteudo{
+.paragrafo1 .conteudo,
+.paragrafo2 .conteudo {
     font-family: var(--fonte-Crimson);
     color: var(--cinza);
-    font-size: 18px;
+    font-size: clamp(16px, 2.2vw, 18px);
     line-height: 1.7;
+    white-space: pre-line;
 }
 
-.curiosidades{
-    padding: 60px 20px;
-    margin: 50px;
+.curiosidades {
+    padding: clamp(32px, 6vw, 60px) 0;
+    margin: clamp(20px, 5vw, 50px);
 }
 
-.curiosidades h1{
+.curiosidades h1 {
     text-align: center;
     font-family: var(--fonte-Anton);
     text-transform: uppercase;
     font-weight: 400;
-    font-size: 40px;
+    font-size: clamp(28px, 6vw, 40px);
 }
 
-.grid-curiosidades{
+.grid-curiosidades {
     margin-top: 50px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    background-color: #222; 
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    background-color: #222;
     gap: 1px;
-
 }
 
-.curiosidade{
+.curiosidade {
     background-color: var(--preto);
-    padding: 30px;
+    padding: clamp(20px, 3vw, 30px);
     line-height: 1.5;
     transition: background-color 0.3s ease;
 }
 
-.curiosidade:hover{
-    cursor: pointer;
-    background-color: #10101005;
-}
-
-.curiosidade:hover .separador{
-    width: 100px;
-}
-
-.curiosidade .titulo{
+.curiosidade .titulo {
     font-family: var(--fonte-Anton);
+    font-size: 1.5em;
     font-weight: 400;
     margin-top: 18px;
 }
 
-.curiosidade .descricao{
+.curiosidade .descricao {
     font-family: var(--fonte-Crimson);
     font-size: 16px;
     color: var(--cinza);
 }
 
-/* footer */
-footer{
+@media (hover: hover) {
+    .curiosidade:hover {
+        cursor: pointer;
+        background-color: #101010;
+    }
+
+    .curiosidade:hover .separador {
+        width: 100px;
+    }
+}
+
+/* ==== Rodpé ==== */
+
+footer {
     padding: 10px;
     margin: 10px;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    gap: 20px;
 }
 
-.logo-footer h2{
+.logo-footer h2 {
     font-family: var(--fonte-Anton);
     font-weight: 400;
     color: var(--vermelho);
     font-size: 20px;
 }
 
-.logo-footer p{
+.logo-footer p,
+.localizacao p {
     font-family: var(--fonte-Special);
     color: var(--cinza);
     font-size: 12px;
 }
 
-.localizacao p{
-    font-family: var(--fonte-Special);
-    color: var(--cinza);
-    font-size: 12px;
-}
-
-.assinatura{
+.assinatura {
     text-align: center;
 }
 
-.assinatura h2{
+.assinatura h2 {
     font-family: var(--fonte-Anton);
     color: var(--vermelho);
     font-weight: 400;
     font-size: 18px;
 }
 
-.assinatura p{
+.assinatura p {
     font-family: var(--fonte-Special);
     color: var(--cinza);
     font-size: 12px;
+}
 
+/* ==== Responsividade ==== */
+
+/* ---------- Notebooks pequenos / tablets na horizontal ---------- */
+@media (max-width: 1024px) {
+    .grid-curiosidades {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* ---------- Tablets ---------- */
+@media (max-width: 900px) {
+
+    /* menu hambúrguer */
+    .menu-toggle {
+        display: flex;
+    }
+
+    .anos {
+        display: none;
+    }
+
+    nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        background: var(--preto);
+        border-bottom: 1px solid #2a2a2a;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-8px);
+        transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+    }
+
+    nav.aberto {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    nav a {
+        padding: 18px clamp(16px, 5vw, 88px);
+        border-top: 1px solid #222;
+    }
+
+    /* seções em uma coluna */
+    .banda {
+        grid-template-columns: 1fr;
+        margin: 30px auto;
+    }
+
+    .titulo-banda h1 {
+        margin-bottom: 0;
+    }
+
+    .album-conteudo {
+        grid-template-columns: 1fr;
+    }
+
+    .capa {
+        height: clamp(220px, 45vw, 340px);
+    }
+
+    .legado-conteudo {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ---------- Celulares ---------- */
+@media (max-width: 640px) {
+
+    .hero {
+        background:
+            linear-gradient(0deg, #050505 0%, rgba(5, 5, 5, 0.55) 60%, rgba(5, 5, 5, 0.85) 100%),
+            url("./image/My-Chemical-Romance-Hero.png") 65% center / cover no-repeat;
+    }
+
+    .conteudo h1,
+    .conteudo h2 {
+        margin: 12px;
+    }
+
+    /* cards dos integrantes: nome em cima, cargo/período embaixo */
+    .cabecalho {
+        width: 100%;
+        padding: 16px 12px;
+    }
+
+    .info {
+        align-items: flex-start;
+    }
+
+    .periodo {
+        display: block;
+        margin-left: 0;
+    }
+
+    .painel-interno {
+        grid-template-columns: 1fr;
+    }
+
+    .painel-interno img {
+        max-width: 280px;
+        margin: 0 auto;
+    }
+
+    .tab {
+        font-size: 15px;
+        letter-spacing: 1px;
+    }
+
+    .capa {
+        padding: 16px;
+    }
+
+    .capa .ano-grande {
+        font-size: 34px;
+    }
+
+    .grid-curiosidades {
+        grid-template-columns: 1fr;
+    }
+
+    footer {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px 10px;
+    }
+}
+
+/* ---------- Celulares pequenos ---------- */
+@media (max-width: 400px) {
+    .logo {
+        font-size: 22px;
+    }
+
+    .linha-tempo .ano {
+        min-width: 48px;
+        font-size: 18px;
+    }
+
+    .botao {
+        width: 36px;
+        height: 36px;
+    }
+}
+
+/* ---------- Respeita quem prefere menos movimento ---------- */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
 }

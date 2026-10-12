@@ -1,21 +1,56 @@
-// Script para abrir e fechar os cards de cada integrante;
+// Menu de navegação (hambúrguer em telas pequenas)
+const menuToggle = document.getElementById('menu-toggle');
+const menu = document.getElementById('menu');
 
-  const cabecalhos = document.querySelectorAll('.cabecalho');
+function definirMenu(aberto) {
+  if (!menuToggle || !menu) return;
+  menu.classList.toggle('aberto', aberto);
+  menuToggle.setAttribute('aria-expanded', String(aberto));
+  menuToggle.setAttribute('aria-label', aberto ? 'Fechar menu' : 'Abrir menu');
+}
 
-  cabecalhos.forEach((botao) => {
-    botao.addEventListener('click', () => {
-      const item = botao.closest('.item'); 
-
-      document.querySelectorAll('.item.aberto').forEach((outro) => {
-        if (outro !== item) outro.classList.remove('aberto');
-      });
-
-
-      item.classList.toggle('aberto');
-    });
+if (menuToggle && menu) {
+  menuToggle.addEventListener('click', () => {
+    definirMenu(!menu.classList.contains('aberto'));
   });
 
-  // Script para os albuns da página de discografia;
+  // fecha o menu ao escolher uma seção
+  menu.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => definirMenu(false));
+  });
+
+  // fecha com a tecla Esc
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') definirMenu(false);
+  });
+
+  // fecha ao voltar para a tela grande
+  window.matchMedia('(min-width: 901px)').addEventListener('change', (e) => {
+    if (e.matches) definirMenu(false);
+  });
+}
+
+// Abrir e fechar os cards de cada integrante
+const cabecalhos = document.querySelectorAll('.cabecalho');
+
+cabecalhos.forEach((botao) => {
+  botao.addEventListener('click', () => {
+    const item = botao.closest('.item');
+
+    // fecha os outros cards
+    document.querySelectorAll('.item.aberto').forEach((outro) => {
+      if (outro !== item) {
+        outro.classList.remove('aberto');
+        outro.querySelector('.cabecalho').setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    const aberto = item.classList.toggle('aberto');
+    botao.setAttribute('aria-expanded', String(aberto));
+  });
+});
+
+// Script para os albuns da página de discografia;
   const ALBUNS = [
     {
       imagem: "./image/bullets.png",
@@ -114,7 +149,7 @@
   const indicadorEl = document.getElementById("indicador");
   const conteudoEl = document.getElementById("conteudo");
 
-  // Cria os botões de aba dinamicamente
+
   function montarTabs() {
     ALBUNS.forEach((album, i) => {
       const btn = document.createElement("button");
@@ -175,7 +210,7 @@
 
     // Reinicia a animação removendo e reaplicando a classe
     conteudoEl.classList.remove("anim");
-    void conteudoEl.offsetWidth; // força o navegador a "esquecer" o estado anterior (reflow)
+    void conteudoEl.offsetWidth;
     conteudoEl.classList.add("anim");
   }
 
@@ -187,3 +222,8 @@
 
   // Reposiciona o indicador se a janela for redimensionada
   window.addEventListener("resize", moverIndicador);
+
+  // As fontes mudam a largura das abas: remede quando terminarem de carregar
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(moverIndicador);
+  }
